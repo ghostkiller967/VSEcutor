@@ -1,34 +1,35 @@
 {
-    "compilerOptions": {
-        /* Basic Options */
-        "target": "ES2021",
-        "module": "commonjs",
-        "outDir": "out",
-        "sourceMap": true,
-        "rootDir": ".",
+	"compilerOptions": {
+		"module": "commonjs",
+		"target": "ES2020",
+		"lib": [
+			"ES2020"
+		],
+		"sourceMap": true,
+		"rootDir": "src",
 
-        /* Strict Type-Checking Options */
-        "strict": true,
-        "noImplicitAny": true,
-        "strictNullChecks": true,
-        "strictFunctionTypes": true,
-        "strictBindCallApply": true,
-        "strictPropertyInitialization": true,
-        "noImplicitThis": true,
-        "alwaysStrict": true,
-
-        /* Module Resolution Options */
-        "moduleResolution": "node",
-        "esModuleInterop": true,
-        "resolveJsonModule": true,
-
-        /* Experimental Options */
-        "experimentalDecorators": true,
-        "emitDecoratorMetadata": true,
-
-        /* Advanced Options */
-        "forceConsistentCasingInFileNames": true,
-        "skipLibCheck": true
-    },
-    "include": ["src", "typings"]
+		/* Strict Type-Checking Options */
+		"strict": true,
+		"noImplicitAny": true,
+		"strictNullChecks": true,
+		"strictFunctionTypes": true,
+		"strictBindCallApply": true,
+		"strictPropertyInitialization": true,
+		"noImplicitThis": true,
+		"alwaysStrict": true,
+		
+		/* Module Resolution Options */
+		"moduleResolution": "node",
+		"esModuleInterop": true,
+		"resolveJsonModule": true,
+		
+		/* Experimental Options */
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
+		
+		/* Advanced Options */
+		"forceConsistentCasingInFileNames": true,
+		"skipLibCheck": true
+	},
+    "include": ["src"]
 }

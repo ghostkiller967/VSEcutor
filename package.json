@@ -1,7 +1,8 @@
 {
     "name": "vsecutor",
-    "displayName": "VSEcutor",
-    "description": "Send scripts through a pipe to another application",
+    "displayName": "VSCode Executor",
+    "publisher": "StenDaneel",
+    "description": "Send scripts through a pipe from vscode",
     "version": "0.0.1",
     "engines": {
         "vscode": "^1.67.0"
@@ -11,41 +12,43 @@
     ],
     "activationEvents": [
         "onCommand:vsecutor.inject",
-        "onCommand:vsecutor.execute"
+        "onCommand:vsecutor.execute",
+        "onCommand:vsecutor.update"
     ],
     "main": "./dist/extension.js",
     "contributes": {
-        "commands": [
-            {
+        "commands": [{
                 "command": "vsecutor.inject",
                 "title": "Inject Dll"
             },
             {
                 "command": "vsecutor.execute",
                 "title": "Execute Script"
+            },
+            {
+                "command": "vsecutor.update",
+                "title": "Update Pipe"
             }
         ],
-        "configuration": [
-            {
-                "id": "VSEcutor",
-                "title": "Settings for VSEcutor",
-                "order": 2,
-                "properties": {
-                    "conf.settingsEditor.pipe": {
-                        "type": "string",
-                        "description": "The pipe the script will be sent through."
-                    },
-                    "conf.settingsEditor.dllPath": {
-                        "type": "string",
-                        "description": "The path of the dll."
-                    },
-                    "conf.settingsEditor.targetProcess": {
-                        "type": "string",
-                        "description": "The process the dll will be attached to."
-                    }
+        "configuration": [{
+            "id": "VSEcutor",
+            "title": "Settings for VSEcutor",
+            "order": 2,
+            "properties": {
+                "conf.settingsEditor.pipe": {
+                    "type": "string",
+                    "description": "The pipe the script will be sent through."
+                },
+                "conf.settingsEditor.dllPath": {
+                    "type": "string",
+                    "description": "The path of the dll."
+                },
+                "conf.settingsEditor.targetProcess": {
+                    "type": "string",
+                    "description": "The process the dll will be attached to."
                 }
             }
-        ]
+        }]
     },
     "scripts": {
         "vscode:prepublish": "npm run package",
@@ -75,8 +78,8 @@
         "webpack-cli": "^4.9.2"
     },
     "dependencies": {
-        "joi": "^17.6.0",
         "node-fetch": "^3.2.4",
-        "open": "^8.4.0"
+        "open": "^8.4.0",
+        "sync-request": "^6.1.0"
     }
 }

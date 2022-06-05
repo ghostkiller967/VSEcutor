@@ -34,20 +34,20 @@ export function activate(context: vscode.ExtensionContext) {
 	}));
 
 	context.subscriptions.push(vscode.commands.registerCommand("vsecutor.update", async () => {
-		const response = await fetch("https://raw.githubusercontent.com/ghostkiller967/VSEcutor/main/PipeVersion.json");
+		const response = await fetch("https://raw.githubusercontent.com/sten-code/VSEcutor/main/PipeVersion.json");
 		const latestVersion: Version = JSON.parse(await response.text());
 		if (fs.existsSync("PipeVersion.json")) {
 			const currentVersion: Version = JSON.parse(fs.readFileSync("PipeVersion.json", "utf8"));
 			if (currentVersion.version !== latestVersion.version) {
 				fs.writeFileSync("PipeVersion.json", JSON.stringify({ "version": latestVersion.version }));
 				const file = fs.createWriteStream("Pipe.exe");
-				http.get("https://raw.githubusercontent.com/ghostkiller967/VSEcutor/main/Pipe.exe", function(response) {
+				http.get("https://raw.githubusercontent.com/sten-code/VSEcutor/main/Pipe.exe", function(response) {
 					response.pipe(file);
 				});
 			}
 		} else {
 			fs.writeFileSync("PipeVersion.json", JSON.stringify({ "version": latestVersion.version }));
-			http.get("https://raw.githubusercontent.com/ghostkiller967/VSEcutor/main/Pipe.exe", function(response) {
+			http.get("https://raw.githubusercontent.com/sten-code/VSEcutor/main/Pipe.exe", function(response) {
 				response.pipe(fs.createWriteStream("Pipe.exe"));
 			});
 		}
